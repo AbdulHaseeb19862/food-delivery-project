@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff5733; /* Example custom color */
+  --color-secondary: #33a8ff;
+  --color-dark-chocolate: #633f31;
+}
