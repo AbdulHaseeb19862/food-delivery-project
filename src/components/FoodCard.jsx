@@ -6,7 +6,7 @@ function FoodCard({ item }) {
   const { food_name, food_type, food_image, price } = item;
 
   return (
-    <div className="w-72 h-[450px] bg-white p-3 overflow-hidden rounded-md">
+    <div className="w-80 h-[450px] bg-white p-3 overflow-hidden rounded-md">
       <div className="w-full ">
         <img
           src={food_image}
@@ -25,7 +25,7 @@ function FoodCard({ item }) {
             <span>{food_type}</span>
           </div>
         </div>
-        <button className="text-lg bg-green-800 py-2 font-poppins font-bold text-white rounded-md hover:bg-green-600 cursor-pointer">
+        <button className="text-lg bg-green-800 py-3 font-poppins font-bold text-white rounded-md hover:bg-green-600 cursor-pointer">
           Add to dish
         </button>
       </div>
