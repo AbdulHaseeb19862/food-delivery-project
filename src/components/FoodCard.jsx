@@ -1,12 +1,18 @@
 import React from "react";
 import { LuLeaf } from "react-icons/lu";
 import { GiChickenOven } from "react-icons/gi";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../features/cartSlice";
+import { toast } from "react-toastify";
 
 function FoodCard({ item }) {
+  const data = useSelector((state) => state.cart);
+  console.log(data);
   const { food_name, food_type, food_image, price } = item;
+  const dispatch = useDispatch();
 
   return (
-    <div className="w-80 h-[450px] bg-white p-3 overflow-hidden rounded-md">
+    <div className="w-80 h-[450px] bg-white p-3 overflow-hidden rounded-md hover:border-3 hover:border-green-600 transition-all 2s">
       <div className="w-full ">
         <img
           src={food_image}
@@ -25,7 +31,13 @@ function FoodCard({ item }) {
             <span>{food_type}</span>
           </div>
         </div>
-        <button className="text-lg bg-green-800 py-3 font-poppins font-bold text-white rounded-md hover:bg-green-600 cursor-pointer">
+        <button
+          className="text-lg bg-green-800 py-3 font-poppins font-bold text-white rounded-md hover:bg-green-600 cursor-pointer"
+          onClick={() => {
+            dispatch(addToCart(item));
+            toast.success("Added Successfully");
+          }}
+        >
           Add to dish
         </button>
       </div>

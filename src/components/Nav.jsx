@@ -4,7 +4,9 @@ import { LuShoppingBag } from "react-icons/lu";
 import { useContext, useEffect } from "react";
 import { MyContext } from "../context/api";
 import { food_items } from "../food";
+import { useSelector } from "react-redux";
 function Nav() {
+  const data = useSelector((state) => state.cart);
   const { input, setInput, cate, setCate, showCart, setShowCart } =
     useContext(MyContext);
   useEffect(() => {
@@ -37,9 +39,13 @@ function Nav() {
           />
         </div>
       </form>
-      <div className="bg-white w-14 h-12 flex justify-center items-center rounded-md  text-3xl text-green-600 cursor-pointer relative shadow-md shadow-gray-400 " 
-      onClick={() => setShowCart(true)}>
-        <span className="text-base absolute top-0 right-1 font-bold">0</span>
+      <div
+        className="bg-white w-14 h-12 flex justify-center items-center rounded-md  text-3xl text-green-600 cursor-pointer relative shadow-md shadow-gray-400 "
+        onClick={() => setShowCart(true)}
+      >
+        <span className="text-base absolute top-0 right-0 font-bold p-0.5">
+          {data.length}
+        </span>
         <LuShoppingBag />
       </div>
     </div>
